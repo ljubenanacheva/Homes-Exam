@@ -3,6 +3,7 @@
  * Register a custom post type called "home".
  */
 function softuni_homes_cpt() {
+	
 	$labels = array(
 		'name'                  => _x( 'Homes', 'Post type general name', 'softuni' ),
 		'singular_name'         => _x( 'Home', 'Post type singular name', 'softuni' ),
@@ -36,6 +37,7 @@ function softuni_homes_cpt() {
 
     // flush_rewrite_rules();
 }
+
 add_action( 'init', 'softuni_homes_cpt' );
 
 /**
@@ -67,6 +69,7 @@ function softuni_homes_location_taxonomy() {
 
     register_taxonomy( 'location', 'home', $args );
 }
+
 add_action( 'init', 'softuni_homes_location_taxonomy' );
 
 /**
@@ -98,4 +101,5 @@ function softuni_homes_seller_taxonomy() {
 
     register_taxonomy( 'seller', 'home', $args );
 }
+
 add_action( 'init', 'softuni_homes_seller_taxonomy' );

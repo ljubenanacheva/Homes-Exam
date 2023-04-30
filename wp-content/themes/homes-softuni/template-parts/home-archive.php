@@ -1,4 +1,5 @@
 <li class="property-card">
+
     <div class="property-primary">
         <h2 class="property-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
         <div class="property-meta">
@@ -27,4 +28,5 @@
             
         </div>
     </div>
+    
 </li>

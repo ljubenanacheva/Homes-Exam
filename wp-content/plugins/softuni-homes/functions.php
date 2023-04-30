@@ -48,6 +48,9 @@ function softuni_update_home_visit_count( $post_id = 0 ) {
     }
 }
 
+/**
+ * This function adds the content filter for tweeter.
+ */
 function display_twitter_share( $content ) {
 
     $post_title = get_the_title( get_the_ID() );
@@ -58,9 +61,12 @@ function display_twitter_share( $content ) {
 
     return $content;
 }
+
 add_filter( 'the_content', 'display_twitter_share' );
 
-
+/**
+ * This function adds functionality for likes.
+ */
 function softuni_home_like() {
 	$home_id = esc_attr( $_POST['home_id'] );
 
@@ -75,6 +81,7 @@ function softuni_home_like() {
 
     wp_die();
 }
+
 add_action( 'wp_ajax_nopriv_softuni_home_like', 'softuni_home_like' );
 add_action( 'wp_ajax_softuni_home_like', 'softuni_home_like' );
 
@@ -134,6 +141,9 @@ function softuni_display_other_homes_per_seller( $home_id ) {
     }
 }
 
+/** 
+ * This function adds shortcode for details of the property.
+ */
 function softuni_display_home_details( $post_id ) {
     $output = '';
 
@@ -149,9 +159,12 @@ function softuni_display_home_details( $post_id ) {
     return $output;
     
 }
+
 add_shortcode( 'home-details', 'softuni_display_home_details' );
 
-
+/** 
+ * This function adds shortcode homes list.
+ */
 function softuni_display_homes() {
     $output = '';
     $args = array (
@@ -178,4 +191,5 @@ function softuni_display_homes() {
     return $output;
     
 }
+
 add_shortcode( 'homes_list', 'softuni_display_homes' );
