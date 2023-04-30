@@ -77,3 +77,61 @@ function softuni_home_like() {
 }
 add_action( 'wp_ajax_nopriv_softuni_home_like', 'softuni_home_like' );
 add_action( 'wp_ajax_softuni_home_like', 'softuni_home_like' );
+
+/**
+ * This function displays 2 other offers from the same seller
+ */
+function softuni_display_other_homes_per_seller( $home_id ) {
+    if ( empty( $home_id ) ) {
+        return;
+    }
+
+    $homes_args = array(
+        'post_type'         => 'home',
+        'post_status'       => 'publish',
+        'orderby'           => 'name',
+        'posts_per_page'    => 2,
+
+        // set a taxonomy query
+    );
+
+    $homes_query = new WP_Query( $homes_args );
+
+    // var_dump( $jobs_query ); die();
+
+    if ( ! empty( $homes_query ) ) {
+        ?>
+        <ul class="properties-listing">
+            <?php foreach( $homes_query->posts as $home ) { ?>
+                <<li class="property-card">
+		<div class="property-primary">
+			<h2 class="property-title"><a href="<?php the_permalink(); ?>"><?php echo $home->post_title; ?></a></h2>
+			<div class="property-meta">
+				<span class="meta-location">Ovcha Kupel, Sofia</span>
+				<span class="meta-total-area">Total area: 99.50 sq.m</span>
+			</div>
+			<div class="property-details">
+				<span class="property-price">€ 100,815</span>
+				<span class="property-date">Posted <?php the_date(); ?></span>
+			</div>
+		</div>
+		<div class="property-image">
+			<div class="property-image-box">
+            <?php if ( has_post_thumbnail() ) :  ?>
+
+                <?php the_post_thumbnail( $home->home_thumbnail ); ?>
+
+                <?php else : ?>
+
+                <img src="wp-content\themes\homes-softuni\assets\images\bedroom.jpg" alt="property image">
+
+            <?php endif; ?>
+			</div>
+		</div>
+	</li>
+
+            <?php } ?>
+		</ul>
+    <?php
+    }
+}
