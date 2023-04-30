@@ -47,3 +47,19 @@ function softuni_update_home_visit_count( $post_id = 0 ) {
         update_post_meta( $post_id, 'visits_count', 1 );
     }
 }
+
+function display_twitter_share( $content ) {
+
+    $post_title = get_the_title( get_the_ID() );
+
+    // echo $my_var;
+
+    // test_funct();
+
+    $twitter = '<a class="twitter-share-button" href="https://twitter.com/intent/tweet?text='. $post_title .'">Tweet</a>';
+
+    $content .= '<div>'. $twitter .'</div>';
+
+    return $content;
+}
+add_filter( 'the_content', 'display_twitter_share' );

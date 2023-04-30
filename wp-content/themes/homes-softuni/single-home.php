@@ -54,10 +54,7 @@
 				</header>
 
 				<div class="property-body">
-					<p>Real estate agency "New Home" presents you a two-room apartment in a newly built building in Ovcha Kupel. With quick access to the Ring Road, close to public transport stops, shops and restaurants, a kindergarten.</p>
-					<p>The apartment has an entrance hall, living room with kitchenette, bedroom, bathroom with toilet, terrace.</p>
-					<p>The exposure is east/north.<br>There is an opportunity to purchase a garage in the building.</p>
-					<p>The building will be completed with luxury common areas, staircases and a lobby. Commercial areas include a restaurant, gym, a beauty salon, a shop, and a pharmacy.</p>
+                <?php the_content(); ?>
 				</div>
 			</div>
 		</div>
