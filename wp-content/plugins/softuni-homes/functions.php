@@ -134,10 +134,10 @@ function softuni_display_other_homes_per_seller( $home_id ) {
     }
 }
 
-function softuni_display_home_details($home_id) {
+function softuni_display_home_details( $post_id ) {
     $output = '';
 
-    if( empty $home_id ){
+    if( empty ( $post_id ) ){
         return;
     }
          
