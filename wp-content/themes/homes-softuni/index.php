@@ -15,7 +15,7 @@
 				</div>
 				<div class="property-image">
 					<div class="property-image-box">
-						<img src="images/bedroom.jpg" alt="property image">
+						<img src="wp-content\themes\homes-softuni\assets\images\bedroom.jpg" alt="property image">
 					</div>
 				</div>
 			</li>
@@ -34,7 +34,7 @@
 				</div>
 				<div class="property-image">
 					<div class="property-image-box">
-						<img src="images/bedroom.jpg" alt="property image">
+						<img src="wp-content\themes\homes-softuni\assets\images\bedroom.jpg" alt="property image">
 					</div>
 				</div>
 			</li>
