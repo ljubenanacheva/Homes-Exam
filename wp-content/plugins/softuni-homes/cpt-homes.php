@@ -23,7 +23,7 @@ function softuni_homes_cpt() {
 		'show_ui'            => true,
 		'show_in_menu'       => true,
 		'query_var'          => true,
-		'rewrite'            => array( 'slug' => 'Home' ),
+		'rewrite'            => array( 'slug' => 'home' ),
 		'capability_type'    => 'post',
 		'has_archive'        => true,
 		'hierarchical'       => false,
