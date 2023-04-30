@@ -75,7 +75,7 @@
 				
 			</div>
 		</div>
-		<a href="#" class="button button-wide">Like the property</a>
+		<a id="<?php echo get_the_ID(); ?>" href="#" class="button-wide">Like the property (<?php echo get_post_meta( get_the_ID(), 'likes', true ) ?>)</a>
 	</aside>
 </div>
 

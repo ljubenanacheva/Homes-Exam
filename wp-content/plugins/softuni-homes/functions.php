@@ -52,10 +52,6 @@ function display_twitter_share( $content ) {
 
     $post_title = get_the_title( get_the_ID() );
 
-    // echo $my_var;
-
-    // test_funct();
-
     $twitter = '<a class="twitter-share-button" href="https://twitter.com/intent/tweet?text='. $post_title .'">Tweet</a>';
 
     $content .= '<div>'. $twitter .'</div>';
@@ -63,3 +59,21 @@ function display_twitter_share( $content ) {
     return $content;
 }
 add_filter( 'the_content', 'display_twitter_share' );
+
+
+function softuni_home_like() {
+	$home_id = esc_attr( $_POST['home_id'] );
+
+	$like_number = get_post_meta( $home_id, 'likes', true );
+
+    if ( empty( $like_number ) ) {
+        update_post_meta( $home_id, 'likes', 1 );
+    } else {
+        $like_number = $like_number + 1;
+        update_post_meta( $home_id, 'likes', $like_number );
+    }
+
+    wp_die();
+}
+add_action( 'wp_ajax_nopriv_softuni_home_like', 'softuni_home_like' );
+add_action( 'wp_ajax_softuni_home_like', 'softuni_home_like' );
