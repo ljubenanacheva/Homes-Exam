@@ -12,8 +12,12 @@
 				<header class="property-header">
 					<h1 class="property-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></a></h1>
 					<div class="property-meta">
+                        <span class="meta-seller" href="#">Seller: <?php echo softuni_display_single_term( get_the_ID(), 'seller' ); ?></span>
+                        </br>
 						<span class="meta-location">Loation: <?php echo softuni_display_single_term( get_the_ID(), 'location' ); ?></span>
 						<span class="meta-total-area">Price: 1,100 €/sq.m</span>
+                        </br>
+                        <span class="meta-date"> Homes visits: <?php echo get_post_meta( get_the_ID(), 'visits_count', true ); ?></span>
 					</div>
 
 					<div class="property-details grid">
@@ -78,7 +82,7 @@
 	</aside>
 </div>
 
-<h2 class="section-heading">Other similar properties:</h2>
+<h2 class="section-heading">Other properties from the company:</h2>
 <ul class="properties-listing">
 	<li class="property-card">
 		<div class="property-primary">
@@ -119,6 +123,8 @@
 	</li>
    
 </ul>
+
+<?php softuni_update_home_visit_count( get_the_ID() ) ?>
 
     <?php endwhile; ?>
 
