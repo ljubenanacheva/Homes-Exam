@@ -97,8 +97,6 @@ function softuni_display_other_homes_per_seller( $home_id ) {
 
     $homes_query = new WP_Query( $homes_args );
 
-    // var_dump( $jobs_query ); die();
-
     if ( ! empty( $homes_query ) ) {
         ?>
         <ul class="properties-listing">
@@ -135,3 +133,49 @@ function softuni_display_other_homes_per_seller( $home_id ) {
     <?php
     }
 }
+
+function softuni_display_home_details($home_id) {
+    $output = '';
+
+    if( empty $home_id ){
+        return;
+    }
+         
+    $output = $output . "<h2>" .get_the_title() . "</h2>";
+    $output = $output . "<div>" .get_the_post_thumbnail() . "<div>";
+    $output = $output . "<a>" .get_the_permalink() . "</a>";
+                    
+
+    return $output;
+    
+}
+add_shortcode( 'home-details', 'softuni_display_home_details' );
+
+
+function softuni_display_homes() {
+    $output = '';
+    $args = array (
+                    'post_type' => 'homes',
+                    'posts_per_page' => '10',
+                    'publish_status' => 'published',
+    );
+
+    $query = new WP_Query( $args );
+
+    if( $query -> have_posts() ) :
+        while( $query -> have_posts() ):
+                    $query -> the_post();
+                    
+                    $output = $output . "<h2>" .get_the_title() ."</h2>";
+                    $output = $output . "<div>" .get_the_post_thumbnail() ."<div>";
+                    
+        endwhile;
+
+         wp_reset_postdata();
+        
+    endif;
+
+    return $output;
+    
+}
+add_shortcode( 'homes_list', 'softuni_display_homes' );
